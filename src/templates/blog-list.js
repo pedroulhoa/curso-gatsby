@@ -19,14 +19,18 @@ const BlogList = props => {
     <Layout>
       <SEO title="Home" />
       {postList.map(
-        ({
-          node: {
-            frontmatter: { background, category, date, description, title },
-            timeToRead,
-            fields: { slug },
+        (
+          {
+            node: {
+              frontmatter: { background, category, date, description, title },
+              timeToRead,
+              fields: { slug },
+            },
           },
-        }) => (
+          index
+        ) => (
           <PostItem
+            key={index}
             slug={slug}
             background={background}
             category={category}
